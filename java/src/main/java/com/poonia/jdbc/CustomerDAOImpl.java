@@ -21,13 +21,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public void add(Customer customer) {
-		String sql = "insert into customers values(?,?,?)";
+		String sql = "insert into customers values(?,?)";
 		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
 			connection.setAutoCommit(false);
-			statement.setInt(1, customer.getId());
-			statement.setString(2, customer.getName());
-			statement.setInt(3, customer.getAge());
+			statement.setInt(1, customer.getCustomerNumber());
+			statement.setString(2, customer.getCustomerName());
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,13 +41,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public void update(Customer customer) {
-		String sql = "update customers set customerName=? , contactLastName=? where customerNumber=?";
+		String sql = "update customers set customerName=?  where customerNumber=?";
 		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
 			connection.setAutoCommit(false);
-			statement.setInt(1, customer.getId());
-			statement.setString(2, customer.getName());
-			statement.setInt(3, customer.getAge());
+			statement.setInt(1, customer.getCustomerNumber());
+			statement.setString(2, customer.getCustomerName());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			try {
@@ -87,8 +85,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 			ResultSet rs = statement.executeQuery(sql);
 			while (rs.next()) {
-				Customer c = new Customer(rs.getInt(1), rs.getString("customerName"),
-						rs.getInt("phone"));
+				Customer c = new Customer(rs.getInt(1), rs.getString("customerName"));
 				return c;
 			}
 
@@ -104,13 +101,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 		String sql = "select *from customers ";
 		List<Customer> lst = new LinkedList<Customer>();
-		try (Statement statement = connection.createStatement()) {
+		try (Statement statement1 = connection.createStatement()) {
 
-			ResultSet rs = statement.executeQuery(sql);
+			ResultSet rs = statement1.executeQuery(sql);
 
 			while (rs.next()) {
-				lst.add(new Customer(rs.getInt(1), rs.getString("customerName"), rs
-						.getInt("phone")));
+				lst.add(new Customer(rs.getInt(1), rs.getString("customerName")));
+				System.out.println("customerno:"+rs.getInt(1)+" "+"customer name :"+ rs.getString("customerName"));
 				return lst;
 			}
 
@@ -126,12 +123,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public int[] executeBatch(Customer[] customer) {
-		String sql = "insert into customers values(?,?, ?)";
+		String sql = "insert into customers values(?,?)";
 		try (PreparedStatement ps = connection.prepareStatement(sql)) {
 			for (Customer c : customer) {
-				ps.setInt(1, c.getId());
-				ps.setString(2, c.getName());
-				ps.setInt(3, c.getAge());
+				ps.setInt(1, c.getCustomerNumber());
+				ps.setString(2, c.getCustomerName());
 				ps.addBatch();
 			}
 			int count[] = ps.executeBatch();

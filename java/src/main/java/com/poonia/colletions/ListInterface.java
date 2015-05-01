@@ -7,52 +7,49 @@ import java.util.List;
 import java.util.ListIterator;
 
 import com.poonia.core.*;
+
 public class ListInterface {
 
 	public static void main(String[] args) {
 
-
-		List<Customer>list=new ArrayList<>();
-		list.add(new Customer(1,"name1",23));
-		list.add(new Customer(2,"name2",33));
-		list.add(new Customer(3,"name3",13));
-		list.add(new Customer(4,"name4",43));
-		list.add(new Customer(5,"name5",53));
-		list.add(new Customer(6,"name6",63));
-		Collections.sort(list,new Comparator<Customer>(){
+		List<Customer> list = new ArrayList<>();
+		list.add(new Customer(1, "name1"));
+		list.add(new Customer(2, "name2"));
+		list.add(new Customer(3, "name3"));
+		list.add(new Customer(4, "name4"));
+		list.add(new Customer(5, "name5"));
+		list.add(new Customer(6, "name6"));
+		Collections.sort(list, new Comparator<Customer>() {
 			@SuppressWarnings("unused")
-			public int compairTo(Customer o1,Customer o2){
-				return ((Integer)o1.getId()).compareTo(o2.getId());
+			public int compairTo(Customer o1, Customer o2) {
+				return ((Integer) o1.getCustomerNumber()).compareTo(o2
+						.getCustomerNumber());
 			}
 
 			@Override
 			public int compare(Customer o1, Customer o2) {
-				// TODO Auto-generated method stub
 				return 0;
 			}
 		});
-		System.out.println("size: "+list.size());
-		System.out.println("remove: "+list.remove(2));
-		System.out.println("set: "+list.set(4,new Customer(44,"name44",14)));
-		System.out.println("contain: "+list.contains(new Customer(44,"name44",14)));
-		
-		
-		ListIterator<Customer>li=list.listIterator();
-		
-		
-		while(li.hasNext())
-		{ if(li.nextIndex()==1){
-				//li.add(new Customer(100,"name100",100));
-					}
-		
-		li.next();
+		System.out.println("size: " + list.size());
+		System.out.println("remove: " + list.remove(2));
+		System.out.println("set: " + list.set(4, new Customer(44, "name44")));
+		System.out.println("contain: "
+				+ list.contains(new Customer(44, "name44")));
+
+		ListIterator<Customer> li = list.listIterator();
+
+		while (li.hasNext()) {
+			if (li.nextIndex() == 1) {
+				// li.add(new Customer(100,"name100"));
+			}
+
+			li.next();
 		}
-		
-		
-		while(li.hasPrevious()){
+
+		while (li.hasPrevious()) {
 			System.out.println(li.previous());
 		}
-}
-	
-}
+	}
 
+}
