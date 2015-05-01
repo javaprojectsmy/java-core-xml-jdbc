@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tesco:Customers xmlns:tesco="http://java8.com/tesco"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://java8.com/tesco/customer.xsd ">
+  <tesco:Customer>
+    <tesco:id>1</tesco:id>
+    <tesco:name>poonia</tesco:name>
+    <tesco:dob>2001-01-01</tesco:dob>
+  </tesco:Customer>
+ <tesco:Customer>
+    <tesco:id>1</tesco:id>
+    <tesco:name>aman</tesco:name>
+    <tesco:dob>2001-01-01</tesco:dob>
+  </tesco:Customer>
+  <tesco:Customer>
+    <tesco:id>1</tesco:id>
+    <tesco:name>vikash</tesco:name>
+    <tesco:dob>2001-11-01</tesco:dob>
+  </tesco:Customer>
+</tesco:Customers>

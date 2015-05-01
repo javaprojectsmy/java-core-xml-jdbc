@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://java8.com/tesco" 
+xmlns:tesco="http://java8.com/tesco" elementFormDefault="qualified">
+<element  name="Customers">
+<complexType>
+<sequence>
+<element ref="tesco:Customer" minOccurs="1" maxOccurs="unbounded"></element>
+</sequence>
+</complexType>
+</element>
+<element name="Customer">
+<complexType>
+<sequence>
+<element name = "id" type="int" />
+<element name = "name" type="string"/>
+<element name = "dob" type="date"/>
+</sequence>
+</complexType>
+</element>
+
+</schema>
