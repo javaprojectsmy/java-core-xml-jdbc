@@ -7,7 +7,10 @@ import com.poonia.spring.model.Customer;
 
 public interface SpringHibernateCriteriaQuriesDAO {
 	List<Customer> findAll();
+
 	List<Customer> pagination();
+
 	Date projections();
+
 	void criteria1();
 }

@@ -12,11 +12,9 @@ import com.poonia.spring.model.Greeting;
 public class SpringClientQueries {
 	public static void main(String[] args) {
 
-		ApplicationContext ioc = new ClassPathXmlApplicationContext(
-				"applicationContext.xml");
+		ApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-		SpringHibernateCriteriaQuriesDAO dao = ioc
-				.getBean(SpringHibernateCriteriaQuriesDAO.class);
+		SpringHibernateCriteriaQuriesDAO dao = ioc.getBean(SpringHibernateCriteriaQuriesDAO.class);
 
 		dao.criteria1();
 		List<Customer> lst = dao.pagination();
@@ -24,8 +22,8 @@ public class SpringClientQueries {
 			System.out.println(c);
 		System.out.println(dao.projections());
 
-//		Greeting gr = ioc.getBean(Greeting.class);
-//		System.out.println(gr.greeting());
+		// Greeting gr = ioc.getBean(Greeting.class);
+		// System.out.println(gr.greeting());
 
 	}
 

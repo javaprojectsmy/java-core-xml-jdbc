@@ -50,7 +50,7 @@
 		<property name="packagesToScan" value="com.poonia.spring.model"></property>
 
 	</bean>
-	
+
 	<!-- Declarative Transaction Support -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
