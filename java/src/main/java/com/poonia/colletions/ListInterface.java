@@ -22,8 +22,7 @@ public class ListInterface {
 		Collections.sort(list, new Comparator<Customer>() {
 			@SuppressWarnings("unused")
 			public int compairTo(Customer o1, Customer o2) {
-				return ((Integer) o1.getCustomerNumber()).compareTo(o2
-						.getCustomerNumber());
+				return ((Integer) o1.getCustomerNumber()).compareTo(o2.getCustomerNumber());
 			}
 
 			@Override
@@ -34,8 +33,7 @@ public class ListInterface {
 		System.out.println("size: " + list.size());
 		System.out.println("remove: " + list.remove(2));
 		System.out.println("set: " + list.set(4, new Customer(44, "name44")));
-		System.out.println("contain: "
-				+ list.contains(new Customer(44, "name44")));
+		System.out.println("contain: " + list.contains(new Customer(44, "name44")));
 
 		ListIterator<Customer> li = list.listIterator();
 

@@ -8,7 +8,6 @@ public class IterationImpl implements Iteration {
 	}
 	
 	
-	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
 		if(objects==null)
@@ -17,7 +16,6 @@ public class IterationImpl implements Iteration {
 		return i<=objects.length-1;
 	}
 
-	@Override
 	public Object next() {
 		Object obj=objects[i];
 		i++;

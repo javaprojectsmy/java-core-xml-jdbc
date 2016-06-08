@@ -13,22 +13,19 @@ import org.xml.sax.SAXException;
 public class TestSaxParser {
 
 	public static void main(String[] args) {
-	        SAXParserFactory factory =SAXParserFactory.newInstance();
-	        try (InputStream in=new FileInputStream("./src/com/java8/tesco/xml/customer.xml")){
-				SAXParser saxParser=factory.newSAXParser();
-				CustomerSaxHandler handler=new CustomerSaxHandler();
-				saxParser.parse(in,handler);
-				for(Customer c:handler.getCustomers()){
-					System.out.println(c.getId()+" "+c.getName()+" "+c.getDob());
-				}
-				
-			} catch (IOException |ParserConfigurationException |SAXException e) {
-				e.printStackTrace();
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+		try (InputStream in = new FileInputStream("./src/com/java8/tesco/xml/customer.xml")) {
+			SAXParser saxParser = factory.newSAXParser();
+			CustomerSaxHandler handler = new CustomerSaxHandler();
+			saxParser.parse(in, handler);
+			for (Customer c : handler.getCustomers()) {
+				System.out.println(c.getId() + " " + c.getName() + " " + c.getDob());
 			}
 
-	        
-	        
-	        
+		} catch (IOException | ParserConfigurationException | SAXException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

@@ -22,8 +22,7 @@ public class ListInterface1 {
 		System.out.println("size: " + list.size());
 		System.out.println("remove: " + list.remove(2));
 		System.out.println("set: " + list.set(4, new Customer(44, "name44")));
-		System.out.println("contain: "
-				+ list.contains(new Customer(44, "name44")));
+		System.out.println("contain: " + list.contains(new Customer(44, "name44")));
 
 		ListIterator<Customer> li = list.listIterator();
 
