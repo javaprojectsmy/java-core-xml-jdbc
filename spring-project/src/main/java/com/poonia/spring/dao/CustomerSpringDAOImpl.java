@@ -23,7 +23,7 @@ public class CustomerSpringDAOImpl implements CustomerSpringDAO {
 	}
 
 	// Dependency Injection
-	// Injecting The Sessionfatory based on the
+	// Injecting The Session factory based on the
 	// Configuration in applicationContext.xml
 	@Autowired
 	private SessionFactory sessionFactory;

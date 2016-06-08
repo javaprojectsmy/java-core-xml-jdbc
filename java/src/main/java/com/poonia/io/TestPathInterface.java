@@ -18,7 +18,8 @@ public class TestPathInterface {
 		FileSystem fileSystem = path.getFileSystem();
 		try (WatchService watchService = fileSystem.newWatchService();) {
 
-			path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY,
+			path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE,
+					StandardWatchEventKinds.ENTRY_MODIFY,
 					StandardWatchEventKinds.ENTRY_DELETE);
 			while (true) {
 				try {
@@ -26,7 +27,8 @@ public class TestPathInterface {
 					WatchKey watchKey = watchService.take();
 					for (@SuppressWarnings("rawtypes")
 					WatchEvent event : watchKey.pollEvents()) {
-						System.out.println(event.kind() + " " + event.context());
+						System.out
+								.println(event.kind() + " " + event.context());
 					}
 
 				} catch (InterruptedException e) {

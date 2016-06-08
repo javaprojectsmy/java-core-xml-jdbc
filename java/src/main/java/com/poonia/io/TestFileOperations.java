@@ -9,7 +9,8 @@ public class TestFileOperations {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		try (InputStream in = new FileInputStream("./src/com/java8/tesco/core/Customer.java")) {
+		try (InputStream in = new FileInputStream(
+				"./src/com/java8/tesco/core/Customer.java")) {
 			byte bytes[] = new byte[2 * 1024];
 			int data = 0;
 			while ((data = in.read(bytes)) > 0) {

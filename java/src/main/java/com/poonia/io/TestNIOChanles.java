@@ -10,7 +10,8 @@ public class TestNIOChanles {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		try (FileInputStream fis = new FileInputStream("./src/com/java8/tesco/core/Customer.java")) {
+		try (FileInputStream fis = new FileInputStream(
+				"./src/com/java8/tesco/core/Customer.java")) {
 			FileChannel inChannel = fis.getChannel();
 			ByteBuffer buffer = ByteBuffer.allocate(48);
 

@@ -9,7 +9,6 @@ public class MinMaxArrayImpl<T extends Comparable<T>> implements MinMaxArray<T> 
 		this.vals = vals;
 	}
 
-	
 	public T min() {
 		// TODO Auto-generated method stub
 
@@ -26,7 +25,6 @@ public class MinMaxArrayImpl<T extends Comparable<T>> implements MinMaxArray<T> 
 		return min;
 	}
 
-	
 	public T max() {
 		// TODO Auto-generated method stub
 

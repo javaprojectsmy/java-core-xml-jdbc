@@ -2,26 +2,30 @@ package com.poonia.core;
 
 public abstract class Shape {
 
-	private double width,height;
-	public Shape(double width,double height){
-		
-		this.width=width;
-		this.height=height;
+	private double width, height;
+
+	public Shape(double width, double height) {
+
+		this.width = width;
+		this.height = height;
 	}
-	
-	public double getWidth(){
+
+	public double getWidth() {
 		return width;
 	}
-	public void  SetWidth(double width){
-		this.width=width;
+
+	public void SetWidth(double width) {
+		this.width = width;
 	}
-	public double getHeight(){
+
+	public double getHeight() {
 		return height;
 	}
-	public void SetHeight(double height){
-		this.height=height;
+
+	public void SetHeight(double height) {
+		this.height = height;
 	}
-	
+
 	public abstract double calculateArea();
-	//encapsulation is implementation of behaviour 
+	// encapsulation is implementation of behaviour
 }

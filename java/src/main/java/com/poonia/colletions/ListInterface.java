@@ -12,7 +12,7 @@ public class ListInterface {
 
 	public static void main(String[] args) {
 
-		List<Customer> list = new ArrayList<>();
+		List<Customer> list = new ArrayList<Customer>();
 		list.add(new Customer(1, "name1"));
 		list.add(new Customer(2, "name2"));
 		list.add(new Customer(3, "name3"));
@@ -25,7 +25,6 @@ public class ListInterface {
 				return ((Integer) o1.getCustomerNumber()).compareTo(o2.getCustomerNumber());
 			}
 
-			@Override
 			public int compare(Customer o1, Customer o2) {
 				return 0;
 			}

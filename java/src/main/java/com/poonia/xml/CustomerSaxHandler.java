@@ -22,7 +22,8 @@ public class CustomerSaxHandler extends DefaultHandler {
 	}
 
 	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+	public void startElement(String uri, String localName, String qName,
+			Attributes attributes) throws SAXException {
 
 		this.elementStack.push(qName);
 		if ("tesco:Customer".equals(qName)) {
@@ -33,7 +34,8 @@ public class CustomerSaxHandler extends DefaultHandler {
 	}
 
 	@Override
-	public void endElement(String uri, String localName, String qName) throws SAXException {
+	public void endElement(String uri, String localName, String qName)
+			throws SAXException {
 		this.elementStack.pop();
 		if ("tesco:Customer".equals(qName)) {
 			Object object = this.objectStack.pop();
@@ -45,19 +47,23 @@ public class CustomerSaxHandler extends DefaultHandler {
 	}
 
 	@Override
-	public void characters(char[] ch, int start, int length) throws SAXException {
+	public void characters(char[] ch, int start, int length)
+			throws SAXException {
 		String value = new String(ch, start, length);
 		if (value.length() == 0) {
 			return;// ignore white spaces
 		}
-		if ("tesco:id".equals(currentElement()) && "tesco:Customer".equals(currentElementParent())) {
+		if ("tesco:id".equals(currentElement())
+				&& "tesco:Customer".equals(currentElementParent())) {
 			Customer customer = (Customer) this.objectStack.peek();
 			customer.setId(new Integer(value));
-		} else if ("tesco:name".equals(currentElement()) && "tesco:Customer".equals(currentElementParent())) {
+		} else if ("tesco:name".equals(currentElement())
+				&& "tesco:Customer".equals(currentElementParent())) {
 			Customer customer = (Customer) this.objectStack.peek();
 			customer.setName((value));
 		}
-		if ("tesco:dob".equals(currentElement()) && "tesco:Customer".equals(currentElementParent())) {
+		if ("tesco:dob".equals(currentElement())
+				&& "tesco:Customer".equals(currentElementParent())) {
 			Customer customer = (Customer) this.objectStack.peek();
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 			try {

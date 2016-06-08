@@ -10,7 +10,7 @@ public class Rectangle extends Shape {
 	@Override
 	public double calculateArea() {
 		// TODO Auto-generated method stub
-		return getWidth()*getHeight();
+		return getWidth() * getHeight();
 	}
 
 }
